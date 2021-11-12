@@ -9,63 +9,63 @@ import (
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightState
 // note: TransitionPeriod, DftOnState, Effect, OnOff extracted to allow reuse
 type LightState struct {
-	Brightness int    `json:"brightness,omitempty"`
-	ColorTemp  int    `json:"color_temp,omitempty"`
-	Hue        int    `json:"hue,omitempty"`
-	Mode       string `json:"mode,omitempty"`
-	OnOff      int    `json:"on_off,omitempty"`
-	Saturation int    `json:"saturation,omitempty"`
+	Brightness *int    `json:"brightness,omitempty"`
+	ColorTemp  *int    `json:"color_temp,omitempty"`
+	Hue        *int    `json:"hue,omitempty"`
+	Mode       *string `json:"mode,omitempty"`
+	OnOff      *int    `json:"on_off,omitempty"`
+	Saturation *int    `json:"saturation,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingEffectState
 // note: the inheritance of Method is a mistake
 type LightingEffectState struct {
-	Brightness int    `json:"brightness,omitempty"`
-	Custom     int    `json:"custom,omitempty"`
-	Enable     int    `json:"enable,omitempty"`
-	ID         string `json:"id,omitempty"`
-	Name       string `json:"name,omitempty"`
+	Brightness *int    `json:"brightness,omitempty"`
+	Custom     *int    `json:"custom,omitempty"`
+	Enable     *int    `json:"enable,omitempty"`
+	ID         *string `json:"id,omitempty"`
+	Name       *string `json:"name,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.PreferredState
 type PreferredState struct {
 	LightState
-	Index int `json:"index,omitempty"`
+	Index *int `json:"index,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Rule
 type Rule struct {
-	Day      int        `json:"day,omitempty"`
-	ELight   LightState `json:"e_light,omitempty"`
-	EAct     int        `json:"eact,omitempty"`
-	EMin     int        `json:"emin,omitempty"`
-	Enable   int        `json:"enable,omitempty"`
-	EOffset  int        `json:"eoffset,omitempty"`
-	ETimeOpt int        `json:"etime_opt,omitempty"`
-	ID       string     `json:"id,omitempty"`
-	Month    int        `json:"month,omitempty"`
-	Name     string     `json:"name,omitempty"`
-	Remain   int        `json:"remain,omitempty"`
-	Repeat   int        `json:"repeat,omitempty"`
-	SLight   LightState `json:"s_light,omitempty"`
-	SAct     int        `json:"sact,omitempty"`
-	SMin     int        `json:"smin,omitempty"`
-	SOffset  int        `json:"soffset,omitempty"`
-	STimeOpt int        `json:"stime_opt,omitempty"`
-	Wday     []int      `json:"wday,omitempty"`
-	Year     int        `json:"year,omitempty"`
+	Day      *int        `json:"day,omitempty"`
+	ELight   *LightState `json:"e_light,omitempty"`
+	EAct     *int        `json:"eact,omitempty"`
+	EMin     *int        `json:"emin,omitempty"`
+	Enable   *int        `json:"enable,omitempty"`
+	EOffset  *int        `json:"eoffset,omitempty"`
+	ETimeOpt *int        `json:"etime_opt,omitempty"`
+	ID       *string     `json:"id,omitempty"`
+	Month    *int        `json:"month,omitempty"`
+	Name     *string     `json:"name,omitempty"`
+	Remain   *int        `json:"remain,omitempty"`
+	Repeat   *int        `json:"repeat,omitempty"`
+	SLight   *LightState `json:"s_light,omitempty"`
+	SAct     *int        `json:"sact,omitempty"`
+	SMin     *int        `json:"smin,omitempty"`
+	SOffset  *int        `json:"soffset,omitempty"`
+	STimeOpt *int        `json:"stime_opt,omitempty"`
+	Wday     *[]int      `json:"wday,omitempty"`
+	Year     *int        `json:"year,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.TimeSetting.GetTimeZone
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.TimeSetting.SetTimeZone
 // note: extracted for reuse since Go can do struct composition
 type Time struct {
-	Hour  int `json:"hour,omitempty"`
-	Mday  int `json:"mday,omitempty"`
-	Min   int `json:"min,omitempty"`
-	Month int `json:"month,omitempty"`
-	Sec   int `json:"sec,omitempty"`
-	Year  int `json:"year,omitempty"`
+	Hour  *int `json:"hour,omitempty"`
+	Mday  *int `json:"mday,omitempty"`
+	Min   *int `json:"min,omitempty"`
+	Month *int `json:"month,omitempty"`
+	Sec   *int `json:"sec,omitempty"`
+	Year  *int `json:"year,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand
@@ -98,29 +98,29 @@ type CloudModule struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Cloud.Bind
 type BindMethod struct {
 	tpcommand.Method
-	Password string `json:"password,omitempty"`
-	Username string `json:"username,omitempty"`
+	Password *string `json:"password,omitempty"`
+	Username *string `json:"username,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Cloud.GetInfo
 type GetInfoMethod struct {
 	tpcommand.Method
-	Binded       int    `json:"binded,omitempty"`
-	CldCnnection int    `json:"cld_connection,omitempty"`
-	FwDIPage     string `json:"fwDIPage,omitempty"`
-	FwNotifyType int    `json:"fwNotifyType,omitempty"`
-	IllegalType  int    `json:"illegalType,omitempty"`
-	Server       string `json:"server,omitempty"`
-	StopConnect  int    `json:"stopConnect,omitempty"`
-	TcspInfo     string `json:"tcspInfo,omitempty"`
-	TcspStatus   int    `json:"tcspStatus,omitempty"`
-	Username     string `json:"username,omitempty"`
+	Binded       *int    `json:"binded,omitempty"`
+	CldCnnection *int    `json:"cld_connection,omitempty"`
+	FwDIPage     *string `json:"fwDIPage,omitempty"`
+	FwNotifyType *int    `json:"fwNotifyType,omitempty"`
+	IllegalType  *int    `json:"illegalType,omitempty"`
+	Server       *string `json:"server,omitempty"`
+	StopConnect  *int    `json:"stopConnect,omitempty"`
+	TcspInfo     *string `json:"tcspInfo,omitempty"`
+	TcspStatus   *int    `json:"tcspStatus,omitempty"`
+	Username     *string `json:"username,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Cloud.GetIntlFwList
 type GetIntlFwListMethod struct {
 	tpcommand.Method
-	FwList []map[string]interface{} `json:"fw_list,omitempty"`
+	FwList *[]map[string]interface{} `json:"fw_list,omitempty"`
 }
 
 // Deprecated: com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Cloud.LegacySetServerURL
@@ -131,7 +131,7 @@ type LegacySetServerURLMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Cloud.SetServerURL
 type SetServerURLMethod struct {
 	tpcommand.Method
-	Server string `json:"server,omitempty"`
+	Server *string `json:"server,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Cloud.Unbind
@@ -157,23 +157,23 @@ type EraseEmeterStatMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.GetDayStat
 type GetDayStatMethod struct {
 	tpcommand.Method
-	DayList []map[string]interface{} `json:"day_list,omitempty"`
-	Month   int                      `json:"month,omitempty"`
-	Year    int                      `json:"year,omitempty"`
+	DayList *[]map[string]interface{} `json:"day_list,omitempty"`
+	Month   *int                      `json:"month,omitempty"`
+	Year    *int                      `json:"year,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Emeter.GetMonthStat
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.GetMonthStat
 type GetMonthStatMethod struct {
 	tpcommand.Method
-	DayList []map[string]interface{} `json:"month_list,omitempty"`
-	Year    int                      `json:"year,omitempty"`
+	DayList *[]map[string]interface{} `json:"month_list,omitempty"`
+	Year    *int                      `json:"year,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Emeter.GetRealTime
 type GetRealTimeMethod struct {
 	tpcommand.Method
-	PowerMW int `json:"power_mw,omitempty"`
+	PowerMW *int `json:"power_mw,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService
@@ -198,27 +198,27 @@ type AdjustLightBrightnessMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService.GetDefaultBehavior
 type GetDefaultBehaviorMethod struct {
 	tpcommand.Method
-	HardOn PreferredState `json:"hard_on,omitempty"`
-	SoftOn PreferredState `json:"soft_on,omitempty"`
+	HardOn *PreferredState `json:"hard_on,omitempty"`
+	SoftOn *PreferredState `json:"soft_on,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService.GetLightDetails
 type GetLightDetailsMethod struct {
 	tpcommand.Method
-	ColorRenderingIndex    int `json:"color_rendering_index,omitempty"`
-	IncandescentEquivalent int `json:"incandescent_equivalent,omitempty"`
-	LampBeamAngle          int `json:"lamp_beam_angle,omitempty"`
-	MaxLumens              int `json:"max_lumens,omitempty"`
-	MaxVoltage             int `json:"max_voltage,omitempty"`
-	MinVoltage             int `json:"min_voltage,omitempty"`
-	Wattage                int `json:"wattage,omitempty"`
+	ColorRenderingIndex    *int `json:"color_rendering_index,omitempty"`
+	IncandescentEquivalent *int `json:"incandescent_equivalent,omitempty"`
+	LampBeamAngle          *int `json:"lamp_beam_angle,omitempty"`
+	MaxLumens              *int `json:"max_lumens,omitempty"`
+	MaxVoltage             *int `json:"max_voltage,omitempty"`
+	MinVoltage             *int `json:"min_voltage,omitempty"`
+	Wattage                *int `json:"wattage,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService.GetLightState
 // note: since Go allows composition, we can deduplicate this against LightState
 type GetLightStateMethod struct {
 	tpcommand.Method
-	OnOff      int         `json:"on_off,omitempty"`
+	OnOff      *int        `json:"on_off,omitempty"`
 	DftOnState *LightState `json:"dft_on_state,omitempty"`
 	LightState
 }
@@ -226,14 +226,14 @@ type GetLightStateMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService.GetPreferredState
 type GetPreferredStateMethod struct {
 	tpcommand.Method
-	States []PreferredState `json:"states,omitempty"`
+	States *[]PreferredState `json:"states,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService.SetDefaultBehavior
 type SetDefaultBehaviorMethod struct {
 	tpcommand.Method
-	HardOn PreferredState `json:"hard_on,omitempty"`
-	SoftOn PreferredState `json:"soft_on,omitempty"`
+	HardOn *PreferredState `json:"hard_on,omitempty"`
+	SoftOn *PreferredState `json:"soft_on,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.LightingService.SetPreferredState
@@ -247,8 +247,8 @@ type SetPreferredStateMethod struct {
 // note: since Go allows composition, we can deduplicate this against LightState
 type TransitionLightStateMethod struct {
 	tpcommand.Method
-	OnOff            int `json:"on_off,omitempty"`
-	TransitionPeriod int `json:"transition_period,omitempty"`
+	OnOff            *int `json:"on_off,omitempty"`
+	TransitionPeriod *int `json:"transition_period,omitempty"`
 	LightState
 }
 
@@ -271,7 +271,7 @@ type ScheduleModule struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.BaseRule
 type AddRuleMethod struct {
 	tpcommand.Method
-	ConflictID string `json:"conflict_id,omitempty"`
+	ConflictID *string `json:"conflict_id,omitempty"`
 	Rule
 }
 
@@ -283,14 +283,14 @@ type DeleteAllRulesMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.DeleteRule
 type DeleteRuleMethod struct {
 	tpcommand.Method
-	ID string `json:"id,omitempty"`
+	ID *string `json:"id,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.EditRule
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.BaseRule
 type EditRuleMethod struct {
 	tpcommand.Method
-	ConflictID string `json:"conflict_id,omitempty"`
+	ConflictID *string `json:"conflict_id,omitempty"`
 	Rule
 }
 
@@ -302,25 +302,25 @@ type EraseRuntimeStatMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.GetNextAction
 type GetNextActionMethod struct {
 	tpcommand.Method
-	Action   int         `json:"action,omitempty"`
-	ID       string      `json:"id,omitempty"`
+	Action   *int        `json:"action,omitempty"`
+	ID       *string     `json:"id,omitempty"`
 	Light    *LightState `json:"light,omitempty"`
-	SchdTime int         `json:"schd_time,omitempty"`
-	Type     int         `json:"type,omitempty"`
+	SchdTime *int        `json:"schd_time,omitempty"`
+	Type     *int        `json:"type,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.GetRules
 type GetRulesMethod struct {
 	tpcommand.Method
-	Enable   int    `json:"enable,omitempty"`
-	RuleList []Rule `json:"rule_list,omitempty"`
-	Version  int    `json:"version,omitempty"`
+	Enable   *int    `json:"enable,omitempty"`
+	RuleList *[]Rule `json:"rule_list,omitempty"`
+	Version  *int    `json:"version,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.Schedule.SetOverallEnable
 type SetOverallEnableMethod struct {
 	tpcommand.Method
-	Enable int `json:"enable,omitempty"`
+	Enable *int `json:"enable,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.tpcommon.model.smartlife.iot.common.setupgradewarmodule.SetUpgradeWarModule
@@ -332,7 +332,7 @@ type SetUpgradeWarModule struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.tpcommon.model.smartlife.iot.common.setupgradewarmodule.methods.SetUpgradeWar
 type SetUpgradeWarMethod struct {
 	tpcommand.Method
-	Value int `json:"value,omitempty"`
+	Value *int `json:"value,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.SoftAPOnboarding
@@ -346,28 +346,28 @@ type SoftAPOnboardingModule struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.SoftAPOnboarding.GetScanInfo
 type GetScanInfoMethod struct {
 	tpcommand.Method
-	ApList        []map[string]interface{} `json:"ap_list,omitempty"`
-	Refresh       int                      `json:"refresh,omitempty"`
-	WPA3Supported string                   `json:"wpa3_supported,omitempty"`
+	ApList        *[]map[string]interface{} `json:"ap_list,omitempty"`
+	Refresh       *int                      `json:"refresh,omitempty"`
+	WPA3Supported *string                   `json:"wpa3_supported,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.SoftAPOnboarding.GetStaInfo
 type GetStaInfoMethod struct {
 	tpcommand.Method
-	KeyType int    `json:"key_type,omitempty"`
-	RSSI    int    `json:"rssi,omitempty"`
-	SSID    string `json:"ssid,omitempty"`
+	KeyType *int    `json:"key_type,omitempty"`
+	RSSI    *int    `json:"rssi,omitempty"`
+	SSID    *string `json:"ssid,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.SoftAPOnboarding.SetStaInfo
 type SetStaInfoMethod struct {
 	tpcommand.Method
-	CipherType int    `json:"cipher_type,omitempty"`
-	KeyIndex   int    `json:"key_index,omitempty"`
-	KeyType    int    `json:"key_type,omitempty"`
-	Password   string `json:"password,omitempty"`
-	SSID       string `json:"ssid,omitempty"`
-	WEPMode    int    `json:"wep_mode,omitempty"`
+	CipherType *int    `json:"cipher_type,omitempty"`
+	KeyIndex   *int    `json:"key_index,omitempty"`
+	KeyType    *int    `json:"key_type,omitempty"`
+	Password   *string `json:"password,omitempty"`
+	SSID       *string `json:"ssid,omitempty"`
+	WEPMode    *int    `json:"wep_mode,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.SysInfo
@@ -379,34 +379,37 @@ type SysInfoModule struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.GetSysInfo
 type GetSysInfoMethod struct {
 	tpcommand.Method
-	LEF                 int                  `json:"LEF,omitempty"`
-	ActiveMode          string               `json:"active_mode,omitempty"`
-	Alias               string               `json:"alias,omitempty"`
-	Description         string               `json:"description,omitempty"`
-	DevState            string               `json:"dev_state,omitempty"`
-	DeviceID            string               `json:"deviceId,omitempty"`
-	HwID                string               `json:"hwId,omitempty"`
-	HwVer               string               `json:"hw_ver,omitempty"`
-	IsColor             int                  `json:"is_color,omitempty"`
-	IsDimmable          int                  `json:"is_dimmable,omitempty"`
-	IsVariableColorTemp int                  `json:"is_variable_color_temp,omitempty"`
+	LEF                 *int                 `json:"LEF,omitempty"`
+	ActiveMode          *string              `json:"active_mode,omitempty"`
+	Alias               *string              `json:"alias,omitempty"`
+	Description         *string              `json:"description,omitempty"`
+	DevState            *string              `json:"dev_state,omitempty"`
+	DeviceID            *string              `json:"deviceId,omitempty"`
+	HwID                *string              `json:"hwId,omitempty"`
+	HwVer               *string              `json:"hw_ver,omitempty"`
+	IsColor             *int                 `json:"is_color,omitempty"`
+	IsDimmable          *int                 `json:"is_dimmable,omitempty"`
+	IsVariableColorTemp *int                 `json:"is_variable_color_temp,omitempty"`
 	LightState          *LightState          `json:"light_state,omitempty"`
 	LightingEffectState *LightingEffectState `json:"lighting_effect_state,omitempty"`
-	MicMac              string               `json:"mic_mac,omitempty"`
-	MicType             string               `json:"mic_type,omitempty"`
-	Model               string               `json:"model,omitempty"`
-	OemID               string               `json:"oemId,omitempty"`
-	PreferredState      []PreferredState     `json:"preferred_state,omitempty"`
-	RelayState          int                  `json:"relay_state,omitempty"`
-	RSSI                int                  `json:"rssi,omitempty"`
-	SwVer               string               `json:"sw_ver,omitempty"`
-	TID                 string               `json:"tid,omitempty"`
+	MicMac              *string              `json:"mic_mac,omitempty"`
+	MicType             *string              `json:"mic_type,omitempty"`
+	Model               *string              `json:"model,omitempty"`
+	OemID               *string              `json:"oemId,omitempty"`
+	PreferredState      *[]PreferredState    `json:"preferred_state,omitempty"`
+	RelayState          *int                 `json:"relay_state,omitempty"`
+	RSSI                *int                 `json:"rssi,omitempty"`
+	SwVer               *string              `json:"sw_ver,omitempty"`
+	TID                 *string              `json:"tid,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbUtils.getTemperatureRange
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.iot.devices.DeviceRegistry.Light
 func (g GetSysInfoMethod) GetTemperatureRange() (int, int, bool) {
-	switch g.Model {
+	if g.Model == nil {
+		return 0, 0, false
+	}
+	switch *g.Model {
 	case "KL130B", "KL130", "KL135", "KL430", "LB130", "LB230":
 		return 2500, 9000, true
 	case "KL120":
@@ -437,10 +440,10 @@ type GetTimeMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.TimeSetting.GetTimeZone
 type GetTimeZoneMethod struct {
 	tpcommand.Method
-	DstOffset string `json:"dst_offset,omitempty"`
-	Index     int    `json:"index,omitempty"`
-	TzStr     string `json:"tz_str,omitempty"`
-	ZoneStr   string `json:"zone_str,omitempty"`
+	DstOffset *string `json:"dst_offset,omitempty"`
+	Index     *int    `json:"index,omitempty"`
+	TzStr     *string `json:"tz_str,omitempty"`
+	ZoneStr   *string `json:"zone_str,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.light.lball.api.TPSmartBulbCommand.TimeSetting.SetTimeZone
@@ -465,9 +468,9 @@ type WeaveDisableMethod struct {
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.tpcommon.model.smartlife.iot.thirdpartyintegration.weave.methods.GetInfo
 type WeaveGetInfoMethod struct {
 	tpcommand.Method
-	DaemonRunning string `json:"daemon_running,omitempty"`
-	RegStatus     int    `json:"reg_status,omitempty"`
-	Registration  string `json:"registration,omitempty"`
+	DaemonRunning *string `json:"daemon_running,omitempty"`
+	RegStatus     *int    `json:"reg_status,omitempty"`
+	Registration  *string `json:"registration,omitempty"`
 }
 
 // com.tplink.kasa_android@2.35.0.1021/com.tplinkra.tpcommon.model.smartlife.iot.thirdpartyintegration.weave.methods.SetTicket
