@@ -247,8 +247,10 @@ type SetPreferredStateMethod struct {
 // note: since Go allows composition, we can deduplicate this against LightState
 type TransitionLightStateMethod struct {
 	tpcommand.Method
-	OnOff            *int `json:"on_off,omitempty"`
-	TransitionPeriod *int `json:"transition_period,omitempty"`
+	OnOff            *int        `json:"on_off,omitempty"`
+	TransitionPeriod *int        `json:"transition_period,omitempty"`
+	IgnoreDefault    *int        `json:"ignore_default,omitempty"`
+	DftOnState       *LightState `json:"dft_on_state,omitempty"`
 	LightState
 }
 
