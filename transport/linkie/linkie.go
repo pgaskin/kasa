@@ -6,7 +6,6 @@ package linkie
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -36,7 +35,7 @@ type Client struct {
 
 var _ transport.Requester = (*Client)(nil)
 
-func (c *Client) Request(ctx context.Context, in, out interface{}) error {
+func (c *Client) Request(in, out interface{}) error {
 	var req encReader
 	if b, err := json.Marshal(in); err != nil {
 		return fmt.Errorf("encode request: %w", err)
