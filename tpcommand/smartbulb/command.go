@@ -180,7 +180,7 @@ type GetRealTimeMethod struct {
 type LightingServiceModule struct {
 	tpcommand.Module
 	AdjustLightBrightness *AdjustLightBrightnessMethod `json:"adjust_light_brightness,omitempty"`
-	GetDefaultBehavior    *GetDefaultBehaviorMethod    `json:",omitempty"`
+	GetDefaultBehavior    *GetDefaultBehaviorMethod    `json:"get_default_behavior,omitempty"`
 	GetLightDetails       *GetLightDetailsMethod       `json:"get_light_details,omitempty"`
 	GetLightState         *GetLightStateMethod         `json:"get_light_state,omitempty"`
 	GetPreferredState     *GetPreferredStateMethod     `json:"get_preferred_state,omitempty"`
