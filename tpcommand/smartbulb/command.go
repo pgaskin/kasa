@@ -49,9 +49,9 @@ type Rule struct {
 	Repeat   *int        `json:"repeat,omitempty"`
 	SLight   *LightState `json:"s_light,omitempty"`
 	SAct     *int        `json:"sact,omitempty"`
-	SMin     *int        `json:"smin,omitempty"`
+	SMin     *int        `json:"smin,omitempty"` // minutes relative to STimeOpt
 	SOffset  *int        `json:"soffset,omitempty"`
-	STimeOpt *int        `json:"stime_opt,omitempty"`
+	STimeOpt *int        `json:"stime_opt,omitempty"` // none (-1), midnight (0), sunrise (1), sunset (2)
 	Wday     *[]int      `json:"wday,omitempty"`
 	Year     *int        `json:"year,omitempty"`
 }
@@ -218,7 +218,6 @@ type GetLightDetailsMethod struct {
 // note: since Go allows composition, we can deduplicate this against LightState
 type GetLightStateMethod struct {
 	tpcommand.Method
-	OnOff      *int        `json:"on_off,omitempty"`
 	DftOnState *LightState `json:"dft_on_state,omitempty"`
 	LightState
 }
@@ -247,7 +246,6 @@ type SetPreferredStateMethod struct {
 // note: since Go allows composition, we can deduplicate this against LightState
 type TransitionLightStateMethod struct {
 	tpcommand.Method
-	OnOff            *int        `json:"on_off,omitempty"`
 	TransitionPeriod *int        `json:"transition_period,omitempty"`
 	IgnoreDefault    *int        `json:"ignore_default,omitempty"`
 	DftOnState       *LightState `json:"dft_on_state,omitempty"`
